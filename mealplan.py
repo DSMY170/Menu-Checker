@@ -1,5 +1,5 @@
 import grequests
-from datetime import datetime,timedelta
+from datetime import datetime
 import json
 
 
@@ -7,15 +7,23 @@ def getInfo(idNumbers):
     apiLink = "https://mplan.ashesi.edu.gh/API/api/getSubscriberHistory/"
     urls = []
 
+    today = datetime.now()
+    today = "/"+today.strftime("%Y-%m-%d")
     for num in idNumbers:
-        urls.append(apiLink+num+"/2023-02-22/2023-02-22")
-    response = (grequests.get(u) for u in urls)
-    print(f"Making {len(urls)} requests")
-
-    payloads = grequests.map(response)
-    payloads = [payload.json() for payload in payloads if len(payload.json()) >0]
+        urls.append(f"{apiLink}{num}{2*today}")
     
-    return payloads
+    try:
+        response = (grequests.get(u) for u in urls)
+
+        payloads = grequests.map(response)
+        payloads = [payload.json() for payload in payloads if len(payload.json()) >0]
+        print(f"Made {len(urls)} requests")
+
+        return payloads
+    except:
+        print("Check your network")
+    
+    return []
 
 
 def extractEssentials(payload):
@@ -45,9 +53,16 @@ def gatherHistory():
         with open(f"c2{i}.txt","r") as f:
             for num in f.readlines():
                 numbers.append(str(int(num)))
-        retrievedPayloads.append(getInfo(numbers))
+            receivedPayload = getInfo(numbers)
+            if len(receivedPayload) > 1:
+                retrievedPayloads.append(receivedPayload)
     print("Payload received")
     
+    # for item in retrievedPayloads:
+    if len(retrievedPayloads)<1:
+        exit()
+    #print(f"{retrievedPayloads.count([])}")
+   
     # extract necessaryinfo from payloads
     for payloads in retrievedPayloads:
         for payload in payloads:
@@ -57,7 +72,7 @@ def gatherHistory():
                     hour = extractedInfo["times"][i]
                     if 0 <= hour < 12:
                         historyData[vendor]["morning"].add(extractedInfo["names"][i])
-                    elif 12 <= hour and hour < 18:
+                    elif 12 <= hour < 18:
                         historyData[vendor]["afternoon"].add(extractedInfo["names"][i])
                     else:
                         historyData[vendor]["evening"].add(extractedInfo["names"][i])
@@ -69,9 +84,9 @@ def gatherHistory():
 
                     # fill in information
                     hour = extractedInfo["times"][i]
-                    if 0 <= hour and hour < 12:
+                    if 0 <= hour < 12:
                         historyData[vendor]["morning"].add(extractedInfo["names"][i])
-                    elif 12 <= hour and hour < 18:
+                    elif 12 <= hour < 18:
                         historyData[vendor]["afternoon"].add(extractedInfo["names"][i])
                     else:
                         historyData[vendor]["evening"].add(extractedInfo["names"][i])
