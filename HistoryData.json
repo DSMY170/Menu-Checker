@@ -1,0 +1,98 @@
+{
+  "Hakuna Services": {
+    "morning": ["Kiki & Niche", "Tablet", "nkatie Burger"],
+    "afternoon": [],
+    "evening": [
+      "Minidrink",
+      "Kalyppo",
+      "Can Coke",
+      "nkatie Burger",
+      "Ceres",
+      "4.5 biscuit",
+      "Rush",
+      "Cerelac",
+      "Small Bottle Water",
+      "Plain Croissant",
+      "BB Cocktail"
+    ]
+  },
+  "Big Ben": {
+    "morning": [
+      "jollof rice/chicken half portion",
+      "Friedrice half",
+      "coslow{salad}",
+      "Chicken only",
+      "Vaettel Water small",
+      "plain rice / chicken half portion",
+      "Fried Plantain",
+      "Vermicelli Rice/ chicken"
+    ],
+    "afternoon": [
+      "fufu&beef light soup",
+      "jollof rice/chicken half portion",
+      "spaghetti/ Egg Stew",
+      "Special drinks",
+      "Vaettel Water small",
+      "Jollof Rice/Chicken",
+      "Fried Plantain"
+    ],
+    "evening": ["Special drinks", "Vaettel Water small"]
+  },
+  "Akornor Cafeteria": {
+    "morning": ["classic protein", "Portioned Sausages"],
+    "afternoon": [
+      "Tilapia",
+      "Takeout pack",
+      "classic protein",
+      "Small bottle water"
+    ],
+    "evening": [
+      "Avocado Slices",
+      "Scoop of Rice",
+      "Deluxe protein",
+      "Fries &  chicken",
+      "classic protein",
+      "Takeout pack"
+    ]
+  },
+  "Essentials": {
+    "morning": ["bread"],
+    "afternoon": ["norisher", "bread", "water 500ml", "Hollandia s/s"],
+    "evening": [
+      "water 500ml",
+      "samosa and spring rolls",
+      "spagetti",
+      "plantain chips",
+      "Staff Discount - 5.00 cedis"
+    ]
+  },
+  "Munchies Services Ltd": {
+    "morning": ["Rich Ghana Salad", "Take Away", "Waffle B.E.L.T"],
+    "afternoon": [
+      "Kalyppo",
+      "Extra Condiments",
+      "Water",
+      "Eggs",
+      "Jerk Chicken",
+      "Rich Ghana Salad",
+      "Full Red Fish",
+      "Take Away",
+      "Plain Rice",
+      "Spaghetti and Meatball Sauce"
+    ],
+    "evening": [
+      "Chicken Wing",
+      "Kalyppo",
+      "Extra Condiments",
+      "Water",
+      "French Fries",
+      "Jerk Chicken",
+      "Jambalaya (Stir Fry Jollof)",
+      "Fanta 330ml",
+      "Yam Chips Only",
+      "Take Away",
+      "Plain Rice",
+      "Fried Rice only"
+    ]
+  }
+}
